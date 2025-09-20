@@ -132,3 +132,16 @@ button#navToggle img.emoji[src*="svg"] {
     transform: none !important;
   }
 }
+
+/* Hard hide hamburger on desktop regardless of utility classes loaded elsewhere */
+@media (min-width: 1025px) {
+  button#navToggle.nav-toggle,
+  .nav-toggle.ml-2.px-3.py-2.rounded-full.border {
+    display: none !important;
+  }
+}
+
+/* Ensure hamburger shows on mobile */
+@media (max-width: 1023.98px) {
+  button#navToggle.nav-toggle { display: inline-flex !important; }
+}

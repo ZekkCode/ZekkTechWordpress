@@ -1,36 +1,18 @@
 /* =====================================================
    Header & Navigation — ZekkTech
-   — Fix: hamburger menu renders OUTSIDE header (no clipping)
-   — Fix: logo tetap di KIRI (desktop & mobile)
-   — Cleaned z-index, spacing, and responsive behavior
-   — Safe to copy–paste
+   Memperbaiki tampilan mobile + logo kiri
    ===================================================== */
 
-/* ---------- Base tokens (optional fallbacks) ---------- */
-:root{
-  --bg-primary: #0e1523;
-  --bg-secondary: #121b2b;
-  --bg-secondary-translucent: color-mix(in oklab, var(--bg-secondary) 88%, transparent);
-  --text-primary: #e6edf3;
-  --text-secondary: #9fb0c3;
-  --border-color: #263247;
-  --accent-color: #4da3ff;
-  --shadow: 0 6px 18px rgba(0,0,0,.25);
-  --shadow-lg: 0 12px 28px rgba(0,0,0,.35);
-  --header-radius: 1.75rem;
-  --header-px: .875rem; /* horizontal padding */
-  --header-py: .625rem; /* vertical padding */
-  --logo-w: 32px; 
-  --logo-h: 32px; 
-  --mobile-header-height: 72px; /* used by fixed dropdown */
+/* Variabel global untuk tinggi header mobile (bisa disesuaikan) */
+:root {
+  --mobile-header-height: 72px;
 }
 
-/* ---------- Header shell & layout ---------- */
-.header-container,
-.header-shell{ position:relative; z-index:1000; }
-
-.header-shell{ 
-  display:flex; align-items:center; gap:.75rem; 
+/* ---------- Shell header dasar ---------- */
+.header-shell {
+  display:flex;
+  align-items:center;
+  gap:.75rem;
   padding: var(--header-py) var(--header-px);
   background: var(--bg-secondary-translucent);
   backdrop-filter: saturate(140%) blur(10px);
@@ -38,108 +20,210 @@
   border: 1px solid color-mix(in oklab, var(--border-color) 60%, transparent);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04), var(--shadow-lg);
   border-radius: var(--header-radius);
-  overflow:hidden; /* keep pill look on desktop */
+  overflow:hidden; /* menjaga bentuk pill di desktop */
+  position:relative;
+  z-index:1000;
 }
 
-/* Keep critical buttons above shell */
-.header-shell .theme-toggle,
-.header-shell .nav-toggle{ position:relative; z-index:1001; }
-
-/* ---------- Logo: ALWAYS left ---------- */
-/* Expected markup: <div class="logo-img"><a class="custom-logo-link"><img /></a></div> */
-.header-shell .logo-img{ display:flex !important; align-items:center; margin-right:0 !important; order:-10; flex:0 0 auto; }
-.header-shell .logo-img a.custom-logo-link{ display:inline-flex; align-items:center; }
-.header-shell .logo-img img{
-  width:var(--logo-w) !important; height:var(--logo-h) !important; max-width:var(--logo-w); max-height:var(--logo-h);
-  object-fit:cover; border-radius:9999px; display:block; margin:0 !important;
+/* ---------- Logo selalu di kiri dengan jarak ---------- */
+.header-shell .logo-img {
+  display:flex !important;
+  align-items:center;
+  margin-left:.75rem;       /* beri jarak dari tepi kiri */
+  margin-right:0 !important;
+  order:-10;
+  flex:0 0 auto;
 }
-/* Optional text beside logo */
-.logo-link,.logo-text,.site-title{ gap:.25rem !important; margin-left:0 !important; padding-left:0 !important; position:relative; left:0; }
-.site-title a{ color:var(--text-primary); text-decoration:none; font-weight:700; }
+.header-shell .logo-img img {
+  width:var(--logo-w) !important;
+  height:var(--logo-h) !important;
+  object-fit:cover;
+  border-radius:9999px;
+  display:block;
+  margin:0 !important;
+}
+.logo-link,
+.logo-text,
+.site-title {
+  gap:.25rem !important;
+  margin-left:0 !important;
+  padding-left:0 !important;
+  position:relative;
+  left:0;
+}
+.site-title a {
+  color:var(--text-primary);
+  text-decoration:none;
+  font-weight:700;
+}
 
-/* ---------- Desktop nav layout: center menu, utilities right ---------- */
-.nav-links-desktop{ position:relative; display:flex; align-items:center; gap:1rem; flex:1 1 auto; min-width:0; }
-.nav-links-desktop .nav-menu{ flex:1 1 auto; display:flex; align-items:center; justify-content:center; gap:1.25rem; min-width:0; }
-.nav-links-desktop .search-area{ margin-left:auto; }
+/* ---------- Layout desktop: menu di tengah, utilitas di kanan ---------- */
+.nav-links-desktop {
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  flex:1 1 auto;
+  min-width:0;
+  position:relative;
+}
+.nav-links-desktop .nav-menu {
+  flex:1 1 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.25rem;
+  min-width:0;
+}
+.nav-links-desktop .search-area {
+  margin-left:auto;
+}
 
-.nav-link{ color:var(--text-secondary); text-decoration:none; transition:color .2s ease; }
-.nav-link:hover{ color:var(--text-primary); }
-
-/* ---------- Buttons (theme & hamburger) ---------- */
+/* ---------- Tombol tema & hamburger ---------- */
 .theme-toggle,
-.nav-toggle{
-  background: var(--bg-secondary) !important;
-  color: var(--text-secondary) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: 9999px !important;
-  padding: .5rem .75rem !important;
-  font-size: 1.1rem !important; line-height:1 !important;
-  min-width: 2.25rem !important; min-height: 2.25rem !important;
-  display:inline-flex !important; align-items:center !important; justify-content:center !important;
-  cursor:pointer !important; transition: all .2s ease !important; text-decoration:none !important;
-  appearance:none !important; outline:none !important; box-shadow:none !important; margin:0 !important;
+.nav-toggle {
+  background:var(--bg-secondary) !important;
+  color:var(--text-secondary) !important;
+  border:1px solid var(--border-color) !important;
+  border-radius:9999px !important;
+  padding:.5rem .75rem !important;
+  font-size:1.1rem !important;
+  line-height:1 !important;
+  min-width:2.25rem !important;
+  min-height:2.25rem !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  cursor:pointer !important;
+  transition:all .2s ease !important;
+  text-decoration:none !important;
+  appearance:none !important;
+  outline:none !important;
+  box-shadow:none !important;
+  margin:0 !important;
 }
-.theme-toggle:hover,.nav-toggle:hover{ background:var(--bg-primary) !important; color:var(--text-primary) !important; box-shadow:var(--shadow) !important; }
-.theme-toggle:focus,.nav-toggle:focus{ outline:2px solid var(--accent-color) !important; outline-offset:2px !important; }
-.theme-toggle:active,.nav-toggle:active{ transform:translateY(1px) !important; }
+.theme-toggle:hover,
+.nav-toggle:hover {
+  background:var(--bg-primary) !important;
+  color:var(--text-primary) !important;
+  box-shadow:var(--shadow) !important;
+}
+.theme-toggle:focus,
+.nav-toggle:focus {
+  outline:2px solid var(--accent-color) !important;
+  outline-offset:2px !important;
+}
+.theme-toggle:active,
+.nav-toggle:active {
+  transform:translateY(1px) !important;
+}
 
-/* WP emoji inside theme button */
-.theme-toggle img.emoji{ width:1.25rem !important; height:1.25rem !important; margin:0 !important; border:none !important; background:none !important; vertical-align:middle !important; display:inline-block !important; }
+/* Menghilangkan tombol hamburger di desktop */
+@media (min-width:1025px) {
+  .nav-toggle { display:none !important; }
+}
 
-/* ---------- Mobile & tablet ---------- */
-@media (max-width:1023.98px){
-  /* allow dropdown/tooltip to escape rounded header */
-  .header-shell{ overflow:visible; }
+/* ---------- Tablet & Mobile ---------- */
+@media (max-width:1023.98px) {
+  /* header overflow harus visible agar dropdown tidak terpotong */
+  .header-shell { overflow:visible; }
 
-  /* Hide site title text on smaller view */
-  .logo-text,.site-title{ display:none !important; }
+  /* sembunyikan teks logo/situs di layar kecil */
+  .logo-text,
+  .site-title { display:none !important; }
 
-  /* Keep right utilities in one row; put hamburger visible */
-  .nav-links-desktop{ display:flex; align-items:center; justify-content:flex-end; gap:.5rem; position:relative; min-width:0; flex:1 1 auto; }
-  .nav-toggle{ display:inline-flex; }
-
-  /* MOBILE DROPDOWN: detached from header, fixed to viewport */
-  .nav-menu{
-    position:fixed; top:var(--mobile-header-height); right:.75rem; left:auto;
-    display:block; /* baseline for transition container */
-    width:min(86vw, 320px); max-height:60vh; overflow:auto;
-    background:var(--bg-secondary); border:1px solid var(--border-color);
-    box-shadow:var(--shadow-lg); border-radius:1rem; padding:1rem;
-    z-index:1200; margin:0;
-    opacity:0; visibility:hidden; transform:translateY(-10px); transition:opacity .2s ease, transform .2s ease, visibility .2s step-end;
+  /* utilitas tetap baris tunggal, hamburger muncul */
+  .nav-links-desktop {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:.5rem;
+    position:relative;
+    min-width:0;
+    flex:1 1 auto;
   }
-  .nav-menu.open{ opacity:1; visibility:visible; transform:translateY(0); transition:opacity .2s ease, transform .2s ease, visibility 0s linear; }
+  .nav-toggle { display:inline-flex; }
 
-  /* vertical menu items */
-  .nav-menu > ul, .nav-menu .menu{ display:flex !important; flex-direction:column; gap:.5rem; list-style:none; margin:0; padding:0; }
-  .nav-menu li{ width:100%; }
-  .nav-menu a{ display:block; width:100%; box-sizing:border-box; padding:.75rem 1rem; border-radius:.5rem; color:var(--text-secondary) !important; text-decoration:none; font-size:.95rem; font-weight:500; transition:all .2s ease; }
-  .nav-menu a:hover{ background:var(--bg-primary); color:var(--text-primary) !important; transform:translateX(4px); }
+  /* Dropdown mobile: keluar dari header, posisi fixed */
+  .nav-menu {
+    position:fixed;
+    top:var(--mobile-header-height);
+    right:.75rem;
+    left:auto;
+    width:min(86vw, 320px);
+    max-height:60vh;
+    overflow:auto;
+    background:var(--bg-secondary);
+    border:1px solid var(--border-color);
+    box-shadow:var(--shadow-lg);
+    border-radius:1rem;
+    padding:1rem;
+    z-index:1200;
+    margin:0;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-10px);
+    transition:opacity .2s ease, transform .2s ease, visibility .2s step-end;
+  }
+  /* Kelas .open akan di-toggle lewat JS saat tombol hamburger diklik */
+  .nav-menu.open {
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+    transition:opacity .2s ease, transform .2s ease, visibility 0s linear;
+  }
 
-  /* Search area on mobile remains compact */
-  .search-area{ margin-bottom:0; width:auto; flex:0 1 auto; }
-  .search-container{ width:auto; }
+  /* susunan vertikal item menu */
+  .nav-menu > ul,
+  .nav-menu .menu {
+    display:flex !important;
+    flex-direction:column;
+    gap:.5rem;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .nav-menu li { width:100%; }
+  .nav-menu a {
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    padding:.75rem 1rem;
+    border-radius:.5rem;
+    color:var(--text-secondary) !important;
+    text-decoration:none;
+    font-size:.95rem;
+    font-weight:500;
+    transition:all .2s ease;
+  }
+  .nav-menu a:hover {
+    background:var(--bg-primary);
+    color:var(--text-primary) !important;
+    transform:translateX(4px);
+  }
+
+  /* area pencarian tetap kompak */
+  .search-area { margin-bottom:0; width:auto; flex:0 1 auto; }
+  .search-container { width:auto; }
 }
 
-/* Even smaller phones: make sheet-style bottom drawer (optional) */
-@media (max-width:480px){
-  .nav-menu{ top:auto; bottom:0; right:0; left:0; width:100%; border-radius:1rem 1rem 0 0; max-height:60vh; }
-  .nav-menu a{ padding:1rem; font-size:1rem; border-bottom:1px solid var(--border-color); }
-  .nav-menu a:last-child{ border-bottom:none; }
+/* ---------- Mode lembar bawah untuk ponsel sangat kecil ---------- */
+@media (max-width:480px) {
+  .nav-menu {
+    top:auto;
+    bottom:0;
+    right:0;
+    left:0;
+    width:100%;
+    border-radius:1rem 1rem 0 0;
+    max-height:60vh;
+  }
+  .nav-menu a {
+    padding:1rem;
+    font-size:1rem;
+    border-bottom:1px solid var(--border-color);
+  }
+  .nav-menu a:last-child { border-bottom:none; }
 }
 
-/* ---------- Desktop explicitly hides hamburger ---------- */
-@media (min-width:1025px){ .nav-toggle{ display:none !important; } }
-
-/* ---------- Utilities ---------- */
-button.theme-toggle,button.nav-toggle{ -webkit-appearance:none !important; -moz-appearance:none !important; appearance:none !important; background-image:none !important; border-style:solid !important; text-transform:none !important; font-family:inherit !important; font-size:1.25rem !important; font-weight:inherit !important; color:var(--text-primary) !important; }
-
-/* ---------- Accessibility & motion ---------- */
-@media (prefers-reduced-motion:reduce){
-  .nav-menu{ transition:none; }
-  .nav-menu a:hover{ transform:none; }
-}
-
-/* ---------- Helper: body scroll lock when menu open (optional)
-   Add/remove class `.is-nav-open` on <body> when toggling the menu. */
-body.is-nav-open{ overflow:hidden; }
+/* Lock scroll saat menu terbuka (tambahkan .is-nav-open pada body via JS) */
+body.is-nav-open { overflow:hidden; }

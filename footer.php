@@ -84,8 +84,8 @@
         }
     })();
     (function(){
-        var toggle = document.getElementById('navToggle');
-        var menu = document.getElementById('navMenu');
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('navMenu');
         if(!toggle || !menu) return;
 
         // Compute and pin menu right under the header pill (mobile/tablet only)
@@ -125,14 +125,20 @@
             menu.classList.add('open');
             toggle.setAttribute('aria-expanded','true');
             menu.setAttribute('aria-hidden','false');
+            try { if (isMobile()) document.body.classList.add('is-nav-open'); } catch(e) {}
             setTimeout(function(){
                 var first = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
                 if(first) first.focus();
             }, 0);
         }
-        function close(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); menu.setAttribute('aria-hidden','true'); }
+        function close(){
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded','false');
+            menu.setAttribute('aria-hidden','true');
+            try { document.body.classList.remove('is-nav-open'); } catch(e) {}
+        }
         function isOpen(){ return menu.classList.contains('open'); }
-    function isMobile(){ return window.matchMedia('(max-width: 1023.98px)').matches; }
+        function isMobile(){ return window.matchMedia('(max-width: 1023.98px)').matches; }
         function syncByViewport(){
             if(isMobile()){
                 if(isOpen()) menu.setAttribute('aria-hidden','false'); else menu.setAttribute('aria-hidden','true');
@@ -154,9 +160,21 @@
         // Initial sync
         syncByViewport();
 
-        toggle.addEventListener('click', function(){
-            if(isOpen()) close(); else open();
-        });
+        // Robust event handling for mobile (Android): prefer pointer events, fallback to click/touch
+        var lastToggleTs = 0;
+        function onToggleEvent(e){
+            // Prevent duplicate handling (e.g., touch followed by click)
+            var now = Date.now();
+            if (now - lastToggleTs < 350) { return; }
+            lastToggleTs = now;
+            if (isOpen()) close(); else open();
+        }
+        if (window.PointerEvent) {
+            toggle.addEventListener('pointerup', onToggleEvent);
+        } else {
+            toggle.addEventListener('touchstart', function(e){ e.preventDefault(); onToggleEvent(e); }, { passive: false });
+            toggle.addEventListener('click', onToggleEvent);
+        }
 
         document.addEventListener('click', function(e){
             if(!isOpen()) return;
