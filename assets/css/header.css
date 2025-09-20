@@ -130,6 +130,9 @@
   /* sembunyikan teks logo/situs di layar kecil */
   .logo-text,
   .site-title { display:none !important; }
+  /* Sembunyikan logo image di HP untuk menghindari ketimpa */
+  .logo-img { display: none !important; }
+  .logo-img img { display: none !important; }
 
   /* utilitas tetap baris tunggal, hamburger muncul */
   .nav-links-desktop {
@@ -169,6 +172,7 @@
     opacity:1;
     visibility:visible;
     transform:translateY(0);
+    display:block !important; /* force visible on mobile when open */
     transition:opacity .2s ease, transform .2s ease, visibility 0s linear;
   }
 

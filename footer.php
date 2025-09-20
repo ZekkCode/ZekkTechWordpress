@@ -160,7 +160,7 @@
         // Initial sync
         syncByViewport();
 
-        // Robust event handling for mobile (Android): prefer pointer events, fallback to click/touch
+        // Robust event handling for mobile (Android): listen to pointer and click, debounce duplicates; also support keyboard
         var lastToggleTs = 0;
         function onToggleEvent(e){
             // Prevent duplicate handling (e.g., touch followed by click)
@@ -169,12 +169,18 @@
             lastToggleTs = now;
             if (isOpen()) close(); else open();
         }
+        // Always attach click as a fallback
+        toggle.addEventListener('click', onToggleEvent);
+        // Attach pointerup when supported for better Android behavior
         if (window.PointerEvent) {
             toggle.addEventListener('pointerup', onToggleEvent);
-        } else {
-            toggle.addEventListener('touchstart', function(e){ e.preventDefault(); onToggleEvent(e); }, { passive: false });
-            toggle.addEventListener('click', onToggleEvent);
         }
+        // Touch fallback (older browsers)
+        toggle.addEventListener('touchend', function(e){ e.preventDefault(); onToggleEvent(e); }, { passive: false });
+        // Keyboard support
+        toggle.addEventListener('keydown', function(e){
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggleEvent(e); }
+        });
 
         document.addEventListener('click', function(e){
             if(!isOpen()) return;
