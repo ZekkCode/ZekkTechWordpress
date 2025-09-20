@@ -1,0 +1,107 @@
+/*
+ * CSS Variables and Theme Colors
+ * ZekkTech Theme - Variables
+ */
+
+:root {
+  /* Light Theme (Default) */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-secondary-translucent: rgba(255, 255, 255, 0.8);
+  /* Subtle page gradient */
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-end: #eef2f7;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --text-muted: #a0aec0;
+  --border-color: #e2e8f0;
+  --accent-color: #667eea;
+  --accent-color-rgb: 102, 126, 234;
+  --accent-hover: #5a67d8;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+  
+  /* Content styling */
+  --link-color: #667eea;
+  --link-hover: #5a67d8;
+  --danger-color: #e53e3e;
+  --success-color: #38a169;
+  --warning-color: #d69e2e;
+  --info-color: #3182ce;
+}
+
+/* Dark Theme */
+.dark {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --bg-secondary-translucent: rgba(45, 55, 72, 0.9);
+  --bg-gradient-start: #0f172a; /* slate-900 */
+  --bg-gradient-end: #111827;   /* gray-900 */
+  --text-primary: #f7fafc;
+  --text-secondary: #a0aec0;
+  --text-muted: #718096;
+  --border-color: #4a5568;
+  --accent-color: #63b3ed;
+  --accent-color-rgb: 99, 179, 237;
+  --accent-hover: #4299e1;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.3), 0 2px 4px -1px rgba(0,0,0,.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.4), 0 4px 6px -2px rgba(0,0,0,.3);
+  
+  /* Content styling */
+  --link-color: #63b3ed;
+  --link-hover: #4299e1;
+  --danger-color: #fc8181;
+  --success-color: #68d391;
+  --warning-color: #f6e05e;
+  --info-color: #63b3ed;
+}
+
+/* Warm Theme */
+.warm {
+  --bg-primary: #fdf6e3;
+  --bg-secondary: #fbf1c7;
+  --bg-secondary-translucent: rgba(251, 241, 199, 0.9);
+  --bg-gradient-start: #fbf6e1;
+  --bg-gradient-end: #f5e8c1;
+  --text-primary: #3c3836;
+  --text-secondary: #7c6f64;
+  --text-muted: #928374;
+  --border-color: #d5c4a1;
+  --accent-color: #d65d0e;
+  --accent-color-rgb: 214, 93, 14;
+  --accent-hover: #cc6600;
+  --shadow: 0 4px 6px -1px rgba(124,111,100,.15), 0 2px 4px -1px rgba(124,111,100,.1);
+  --shadow-lg: 0 10px 15px -3px rgba(124,111,100,.2), 0 4px 6px -2px rgba(124,111,100,.15);
+  
+  /* Content styling */
+  --link-color: #d65d0e;
+  --link-hover: #cc6600;
+  --danger-color: #cc241d;
+  --success-color: #98971a;
+  --warning-color: #d79921;
+  --info-color: #458588;
+}
+
+/* Explicit Light Theme class to mirror :root for consistent specificity */
+.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-secondary-translucent: rgba(255, 255, 255, 0.8);
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-end: #eef2f7;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --text-muted: #a0aec0;
+  --border-color: #e2e8f0;
+  --accent-color: #667eea;
+  --accent-color-rgb: 102, 126, 234;
+  --accent-hover: #5a67d8;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+  --link-color: #667eea;
+  --link-hover: #5a67d8;
+  --danger-color: #e53e3e;
+  --success-color: #38a169;
+  --warning-color: #d69e2e;
+  --info-color: #3182ce;
+}

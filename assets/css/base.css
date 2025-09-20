@@ -1,0 +1,83 @@
+/*
+ * Base HTML and Body Styles
+ * ZekkTech Theme - Base
+ */
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  /* Fallback color */
+  background-color: var(--bg-primary);
+  /* Subtle app-wide gradient background to add depth */
+  background-image: radial-gradient(1200px 600px at 10% -10%, var(--bg-gradient-start) 0%, transparent 60%),
+                    radial-gradient(1200px 600px at 110% -10%, var(--bg-gradient-start) 0%, transparent 60%),
+                    linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  transition: background-color .3s ease, color .3s ease;
+  font-family: var(--font-family, Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji");
+}
+
+/* Global link styling */
+a {
+  color: var(--link-color);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Main content container */
+main {
+  /* Let the page gradient show behind cards */
+  background-color: transparent;
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-primary);
+}
+
+/* Form elements */
+input, textarea, select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.1);
+}
+
+/* Button reset and styling */
+button {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font: inherit !important;
+  color: inherit !important;
+  cursor: pointer !important;
+  outline: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure non-interactive overlays don't block header clicks */
+.hero-section > .absolute { 
+  pointer-events: none; 
+}

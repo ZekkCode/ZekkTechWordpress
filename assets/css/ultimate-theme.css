@@ -1,0 +1,232 @@
+/*
+ * Ultimate Theme Enforcement
+ * ZekkTech Theme - Balanced override for all elements
+ */
+
+/* High specificity selectors to override everything */
+html {
+  background-color: var(--bg-primary) !important;
+}
+
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Main layout containers */
+main#content {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* All cards and articles */
+article.card,
+.card {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.sidebar-card {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Mobile navigation specific fixes */
+.nav-menu {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.nav-toggle {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.nav-toggle:hover {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Header shell theming */
+.header-shell {
+  background-color: var(--bg-secondary-translucent) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Text elements - be more specific */
+.post-title a {
+  color: var(--text-primary) !important;
+}
+
+.post-title a:hover {
+  color: var(--accent-color) !important;
+}
+
+.post-excerpt {
+  color: var(--text-secondary) !important;
+}
+
+.published-date {
+  color: var(--text-secondary) !important;
+}
+
+.author-info {
+  color: var(--text-secondary) !important;
+}
+
+/* Category tags */
+a.category-tag {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+a.category-tag:hover {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+/* Sidebar specific */
+.sidebar-card h3 {
+  color: var(--text-primary) !important;
+}
+
+.sidebar-card p {
+  color: var(--text-secondary) !important;
+}
+
+.sidebar-card a {
+  color: var(--text-secondary) !important;
+}
+
+.sidebar-card a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+footer h3 {
+  color: var(--text-primary) !important;
+}
+
+footer p {
+  color: var(--text-secondary) !important;
+}
+
+/* Hero section - maintain white text */
+.hero-section h1,
+.hero-section p {
+  color: white !important;
+}
+
+/* Navigation */
+.nav-menu a {
+  color: var(--text-secondary) !important;
+}
+
+.nav-menu a:hover {
+  color: var(--text-primary) !important;
+}
+
+/* Forms */
+input[type="search"],
+input[type="text"],
+textarea {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Links - more specific targeting */
+.footer-credits a {
+  color: var(--link-color) !important;
+}
+
+.footer-credits a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Override specific Tailwind utilities only when needed */
+.text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+.bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.bg-gray-50 {
+  background-color: var(--bg-primary) !important;
+}
+
+.border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+/* Force all text colors in layout */
+.max-w-5xl * {
+  color: inherit !important;
+}
+
+/* Ensure all backgrounds are themed */
+.px-4,
+.py-4,
+.py-6 {
+  background-color: transparent !important;
+}
+
+/* Ensure transitions work */
+.card,
+.sidebar-card,
+article {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body,
+  main,
+  #content {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  .card,
+  .sidebar-card {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  .nav-menu {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  .nav-toggle {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+  }
+}

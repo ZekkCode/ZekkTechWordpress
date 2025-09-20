@@ -1,0 +1,232 @@
+/*
+ * Utility Classes and Components
+ * ZekkTech Theme - Components
+ */
+
+/* Card component */
+.card { 
+  background: var(--bg-secondary); 
+  color: var(--text-primary);
+  border: 1px solid var(--border-color); 
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Button components */
+.btn-primary { 
+  background: var(--accent-color); 
+  color: #fff; 
+  border-radius: .75rem; 
+  padding: .5rem 1.25rem; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: .5rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover { 
+  background: var(--accent-hover);
+  color: #fff;
+  opacity: .9; 
+  transform: translateY(-1px); 
+}
+
+/* Ensure 'Baca selengkapnya' text (and any content) inside primary button stays white */
+a.btn-primary,
+a.btn-primary:visited,
+.btn-primary *,
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #ffffff !important;
+}
+
+/* Ensure icons inside the button also appear white */
+.btn-primary svg,
+.btn-primary svg * {
+  color: #ffffff !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.btn-secondary { 
+  background: var(--bg-primary); 
+  color: var(--text-primary); 
+  border: 1px solid var(--border-color); 
+  border-radius: .75rem; 
+  padding: .5rem 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+/* Post content styling */
+.published-date { 
+  display: flex; 
+  align-items: center; 
+  gap: .5rem; 
+  font-size: .875rem; 
+  color: var(--text-secondary); 
+}
+
+.category-tag { 
+  font-size: .75rem; 
+  padding: .25rem .5rem; 
+  background: var(--bg-secondary); 
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color); 
+  border-radius: 9999px; 
+  margin-right: .25rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.category-tag:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.category-tags { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: .25rem; 
+  margin-bottom: .5rem; 
+}
+
+.post-title a { 
+  color: var(--text-primary); 
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.post-title a:hover { 
+  color: var(--accent-color); 
+}
+
+.post-excerpt { 
+  color: var(--text-secondary); 
+}
+
+/* Content areas */
+.prose {
+  color: var(--text-primary);
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: var(--text-primary);
+}
+
+.prose p {
+  color: var(--text-primary);
+}
+
+.prose a {
+  color: var(--link-color);
+}
+
+.prose a:hover {
+  color: var(--link-hover);
+}
+
+.prose blockquote {
+  border-left-color: var(--accent-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.prose code {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.prose pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.prose pre code {
+  background: transparent;
+  border: none;
+}
+
+/* Sidebar styling */
+.sidebar-card {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Hero section */
+.hero-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* Pagination */
+.page-numbers {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.page-numbers:hover,
+.page-numbers.current {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+/* Comments */
+.comment-body {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.comment-meta {
+  color: var(--text-secondary);
+}
+
+.comment-content {
+  color: var(--text-primary);
+}
+
+/* Form styling */
+.comment-form input,
+.comment-form textarea {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.1);
+}

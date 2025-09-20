@@ -1,0 +1,155 @@
+/*
+ * Tailwind Overrides
+ * ZekkTech Theme - Override Tailwind with CSS Variables
+ */
+
+/* Override Tailwind text colors */
+.text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+.text-gray-700 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-800,
+.text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+/* Override Tailwind background colors */
+.bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Override Tailwind border colors */
+.border-gray-200,
+.border-gray-300 {
+  border-color: var(--border-color) !important;
+}
+
+/* Main content area theming */
+#content,
+.site-main {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Card overrides */
+.card {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Sidebar overrides */
+.sidebar-card {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Hero section overrides */
+.hero-section {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Form overrides */
+input[type="search"],
+input[type="text"],
+input[type="email"],
+textarea {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Hover states */
+.hover\:shadow-lg:hover {
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Ensure theme button colors */
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* Category tags */
+.category-tag {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.category-tag:hover {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+  border-color: var(--accent-color) !important;
+}
+
+/* Post meta colors */
+.published-date,
+.post-excerpt {
+  color: var(--text-secondary) !important;
+}
+
+/* Author info */
+.author-info {
+  color: var(--text-secondary) !important;
+}
+
+/* Post title links */
+.post-title a {
+  color: var(--text-primary) !important;
+}
+
+.post-title a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Navigation pagination */
+.page-numbers {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.page-numbers:hover,
+.page-numbers.current {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+  border-color: var(--accent-color) !important;
+}
+
+/* Footer theming */
+footer {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Ensure responsive design maintains theme colors */
+@media (max-width: 768px) {
+  .card,
+  .sidebar-card,
+  .hero-section {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+  }
+}

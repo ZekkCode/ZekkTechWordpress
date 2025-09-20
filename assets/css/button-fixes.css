@@ -1,0 +1,134 @@
+/*
+ * Button Fixes
+ * ZekkTech Theme - Fix button styling conflicts
+ */
+
+/* Universal button reset */
+button[class*="toggle"],
+.theme-toggle,
+.nav-toggle {
+  /* Reset browser defaults */
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: none !important;
+  border-style: solid !important;
+  box-sizing: border-box !important;
+  
+  /* Remove default margins/padding */
+  margin: 0 !important;
+  
+  /* Typography inheritance */
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  text-transform: none !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  vertical-align: middle !important;
+  
+  /* Display and layout */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  /* Remove focus outline, we'll add custom */
+  outline: none !important;
+}
+
+/* WordPress emoji override */
+.theme-toggle img.emoji,
+.nav-toggle img.emoji {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  max-width: 1.25rem !important;
+  max-height: 1.25rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+/* High specificity override for WordPress SVG emojis */
+button#themeToggle img.emoji[src*="svg"],
+button#navToggle img.emoji[src*="svg"] {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Prevent Tailwind and other CSS from interfering */
+.theme-toggle.ml-2.px-3.py-2.rounded-full.border,
+.nav-toggle.ml-2.px-3.py-2.rounded-full.border {
+  /* Override Tailwind classes with theme styles */
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 9999px !important;
+  padding: 0.5rem 0.75rem !important;
+  margin-left: 0.5rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+  font-size: 1.25rem !important;
+  line-height: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Hover states */
+.theme-toggle:hover,
+.nav-toggle:hover {
+  background-color: var(--bg-primary) !important;
+  transform: scale(1.05) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* Focus states for accessibility */
+.theme-toggle:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent-color) !important;
+  outline-offset: 2px !important;
+}
+
+/* Active states */
+.theme-toggle:active,
+.nav-toggle:active {
+  transform: scale(0.95) !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .theme-toggle,
+  .nav-toggle {
+    min-width: 2.25rem !important;
+    min-height: 2.25rem !important;
+    padding: 0.375rem 0.625rem !important;
+  }
+  
+  .theme-toggle img.emoji,
+  .nav-toggle img.emoji {
+    width: 1.125rem !important;
+    height: 1.125rem !important;
+  }
+}
+
+/* Override reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .nav-toggle {
+    transition: none !important;
+  }
+  
+  .theme-toggle:hover,
+  .nav-toggle:hover {
+    transform: none !important;
+  }
+  
+  .theme-toggle:active,
+  .nav-toggle:active {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,240 @@
+/*
+ * Global Theme Application
+ * ZekkTech Theme - Global Theming
+ */
+
+/* Apply theme to all major containers */
+.wp-site-blocks,
+.site-main,
+.content-area,
+.widget-area {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* WordPress core elements */
+.wp-block-group,
+.wp-block-columns,
+.wp-block-column {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Content wrapper */
+.content-wrapper,
+.site-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* WordPress blocks theming */
+.wp-block-quote {
+  border-left-color: var(--accent-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.wp-block-code {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.wp-block-preformatted {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Tables */
+table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+table th {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+table td {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* WordPress navigation */
+.wp-block-navigation a {
+  color: var(--text-secondary);
+}
+
+.wp-block-navigation a:hover {
+  color: var(--text-primary);
+}
+
+/* Post meta */
+.entry-meta,
+.post-meta {
+  color: var(--text-secondary);
+}
+
+.entry-meta a,
+.post-meta a {
+  color: var(--link-color);
+}
+
+.entry-meta a:hover,
+.post-meta a:hover {
+  color: var(--link-hover);
+}
+
+/* Archive and category pages */
+.archive-header,
+.page-header {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.archive-title,
+.page-title {
+  color: var(--text-primary);
+}
+
+.archive-description,
+.page-description {
+  color: var(--text-secondary);
+}
+
+/* Widget styling */
+.widget {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.widget-title {
+  color: var(--text-primary);
+}
+
+.widget ul li {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.widget ul li a {
+  color: var(--link-color);
+}
+
+.widget ul li a:hover {
+  color: var(--link-hover);
+}
+
+/* Search results */
+.search-results .search-result {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Error pages */
+.error-404,
+.no-results {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Accessibility improvements */
+:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Ensure all text inherits theme colors */
+.text-gray-600,
+.text-gray-500,
+.text-gray-700,
+.text-gray-800 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-900,
+.text-black {
+  color: var(--text-primary) !important;
+}
+
+/* Override Tailwind background classes when needed */
+.bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Ensure borders follow theme */
+.border-gray-200,
+.border-gray-300 {
+  border-color: var(--border-color) !important;
+}
+
+/* Theme-specific utilities */
+.theme-bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.theme-text-primary {
+  color: var(--text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-accent {
+  color: var(--accent-color);
+}
+
+.theme-accent-bg {
+  background-color: var(--accent-color);
+}

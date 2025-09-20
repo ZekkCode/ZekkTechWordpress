@@ -1,0 +1,197 @@
+/*
+ * Force Theme Application
+ * ZekkTech Theme - Balanced theme enforcement
+ */
+
+/* Main containers */
+main,
+#content,
+.site-content,
+.content-area {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Cards and articles */
+.card,
+article {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Header elements */
+.header-shell {
+  background-color: var(--bg-secondary-translucent) !important;
+  border-color: var(--border-color) !important;
+}
+
+.theme-toggle,
+.nav-toggle {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+.theme-toggle:hover,
+.nav-toggle:hover {
+  background-color: var(--bg-primary) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Post content */
+.post-title {
+  color: var(--text-primary) !important;
+}
+
+.post-title a {
+  color: var(--text-primary) !important;
+}
+
+.post-title a:hover {
+  color: var(--accent-color) !important;
+}
+
+.post-excerpt {
+  color: var(--text-secondary) !important;
+}
+
+.published-date {
+  color: var(--text-secondary) !important;
+}
+
+/* Category tags */
+.category-tag {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.category-tag:hover {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+/* Sidebar */
+.sidebar-card {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Hero section - keep white text */
+.hero-section h1,
+.hero-section p {
+  color: white !important;
+}
+
+/* Navigation */
+.nav-menu {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.nav-menu a {
+  color: var(--text-secondary) !important;
+}
+
+.nav-menu a:hover {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+footer h3 {
+  color: var(--text-primary) !important;
+}
+
+footer p {
+  color: var(--text-secondary) !important;
+}
+
+/* Override key Tailwind utilities */
+.bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.bg-gray-50 {
+  background-color: var(--bg-primary) !important;
+}
+
+.text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+/* Ensure all text elements inherit proper colors */
+p, span, div, li {
+  color: inherit !important;
+}
+
+/* Ensure links use theme colors */
+a {
+  color: var(--link-color) !important;
+}
+
+a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  body,
+  main,
+  #content {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  .card,
+  .sidebar-card {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  .nav-menu {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  .theme-toggle,
+  .nav-toggle {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+  }
+}
